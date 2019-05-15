@@ -1,0 +1,24 @@
+{
+  "name": "@srnd/topomoji",
+  "version": "1.0.0",
+  "description": "SRND emoji for React projects.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf stage1/* travel symbols regional people objects nature food flags diversity activity",
+    "build": "\"$npm_execpath\" run clean; git submodule update --recursive --remote; svgr src/Emoji -d stage1; create-index -r stage1; rm stage1/index.js; babel stage1 -d .; \"$npm_execpath\" run rename",
+    "rename": "mv Travel travel; mv Symbols symbols; mv Regional regional; mv People people; mv Objects objects; mv Nature nature; mv Food food; mv Flags flags; mv Diversity diversity; mv Activity activity"
+  },
+  "author": "Tyler Menezes",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/cli": "^4.2.0",
+    "create-index": "^2.4.0"
+  },
+  "dependencies": {
+    "react": "^16.8.6"
+  }
+}
